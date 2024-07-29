@@ -1,2 +1,2 @@
 # interview
-Personal Interview practise
+Personal Interview practice
