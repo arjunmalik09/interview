@@ -1,11 +1,9 @@
 const { exec } = require("child_process");
 
 const insertPostgres = (data) => {
-    const dataString = ",".join(data.map((elem) => `('${elem?.from_date}'::timestamp, '${elem?.to_date}'::timestamp, ${elem?.measurement?.low}, ${elem?.measurement?.high})`));
-    const command = `docker exec -it postgres-care-monitor /bin/bash -c "psql -U postgres -c \"
-    INSERT INTO heart_rate VALUES ${dataString};
-    \""`;
-    exec(command);
+    const dataString = data.map((elem) => `('${elem?.from_date}'::timestamp, '${elem?.to_date}'::timestamp, ${elem?.measurement?.low}, ${elem?.measurement?.high})`).join(',');
+    const command = `docker exec postgres-care-monitor /bin/bash -c "psql -U postgres -c \\"INSERT INTO heart_rate VALUES ${dataString};\\""`;
+    exec(command, console.log);
 }
 
 const getHeartBeatMeasurement = (patientData) => {

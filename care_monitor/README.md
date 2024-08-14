@@ -1,19 +1,21 @@
 REQUIREMENTS DESCRIPTION
 1. Create a NodeJS (using express) API to consume the payload given below.
 2. In the payload process HEART_RATE data separately as per this logic. Aggregate min and max heart rate for every 15 minutes.
-Sample Output:
+
+	Sample Output:
 ```
 {
 	"from_date": "2020-10-06T07:00:00.0Z",
 	"to_date": "2020-10-06T07:15:00.0Z",
-	"measurement" : {
+	"measurement": {
 		"low":"65",
-        "high":"120"
+	    "high":"120"
 	}
-}, {
+},
+{
 	"from_date": "2020-10-06T07:18:00.0Z",
 	"to_date": "2020-10-06T07:23:00.0Z",
-	"measurement" : {
+	"measurement": {
 		"low":"70",
         "high":"100"
 	}
