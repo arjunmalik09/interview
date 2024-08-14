@@ -23,3 +23,8 @@ Task 4: Store the data in a Postgres table.
 RUN HERE
 1. Go to https://jubilant-space-succotash-96pr996pj47f74w6-8000.app.github.dev/
 2. RUN from terminal: curl -d "@clinical_metrics.json" -X POST https://jubilant-space-succotash-96pr996pj47f74w6-8000.app.github.dev/getHeartBeatMeasurement
+
+DEBUG
+1. Ensure codespace is up
+2. Ensure node server is running: node server.js
+3. Ensure port is mapped an public
