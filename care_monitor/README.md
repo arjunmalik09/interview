@@ -2,6 +2,7 @@ REQUIREMENTS DESCRIPTION
 1. Create a NodeJS (using express) API to consume the payload given below.
 2. In the payload process HEART_RATE data separately as per this logic. Aggregate min and max heart rate for every 15 minutes.
 Sample Output:
+```
 {
 	"from_date": "2020-10-06T07:00:00.0Z",
 	"to_date": "2020-10-06T07:15:00.0Z",
@@ -17,6 +18,7 @@ Sample Output:
         "high":"100"
 	}
 }
+```
 3. Return the processed response including HEART_RATE and other metrics.
 4. Store the data in a Postgres table.
 
