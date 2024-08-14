@@ -9,7 +9,6 @@ http.createServer((req, res) => {
         });
         req.on('end', () => {
             const requestData = JSON.parse(data);
-            console.log(requestData);
             res.end(JSON.stringify(getHeartBeatMeasurement(requestData)));
         });
         res.writeHead(200);

@@ -3,7 +3,7 @@ const { exec } = require("child_process");
 const insertPostgres = (data) => {
     const dataString = data.map((elem) => `('${elem?.from_date}'::timestamp, '${elem?.to_date}'::timestamp, ${elem?.measurement?.low}, ${elem?.measurement?.high})`).join(',');
     const command = `docker exec postgres-care-monitor /bin/bash -c "psql -U postgres -c \\"INSERT INTO heart_rate VALUES ${dataString};\\""`;
-    exec(command, console.log);
+    exec(command);
 }
 
 const getHeartBeatMeasurement = (patientData) => {
@@ -15,7 +15,6 @@ const getHeartBeatMeasurement = (patientData) => {
             } else {
                 const lastGroup = groups[groups.length - 1];
                 const intervalMiliseconds = 15 * 60 * 1000;
-                console.log(Date.parse(measure.on_date) - Date.parse(lastGroup[0].on_date));
                 if (Date.parse(measure.on_date) - Date.parse(lastGroup[0].on_date) < intervalMiliseconds) {
                     lastGroup.push(measure);
                 } else {
@@ -25,7 +24,6 @@ const getHeartBeatMeasurement = (patientData) => {
             return groups;
         }, []
     );
-    console.log(quarterHourGroups);
     const measurements = quarterHourGroups.map((elem) => ({
         from_date: elem[0].on_date,
         to_date: elem[elem.length - 1].on_date,
