@@ -1,0 +1,8 @@
+.Posts-page {
+  text-align: left;
+  display: flex;
+}
+
+.Posts-content {
+  display: flex;
+}

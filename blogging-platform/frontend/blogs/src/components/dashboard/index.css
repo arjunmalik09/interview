@@ -1,0 +1,17 @@
+.Post {
+  text-align: left;
+  display: flex;
+}
+
+.Post-display-content-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+.Post-title {
+  display: flex;
+}
+
+.Post-content {
+  display: flex;
+}
