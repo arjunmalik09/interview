@@ -1,0 +1,31 @@
+FastApi with a dependency
+models.py
+import model from pydantic
+
+Class HealthCheck(model):
+	status_code: int
+
+
+dependency.py
+# defines dependencies
+# define auth dependency
+
+def auth_function(request_token: str) -> boolean:
+“””Authenticate with JWT token or some other Auth Mechanism”””
+	return jwt_auth.authenticate(request_token)
+
+api.py
+# import library
+import  api from fastApi
+import depends from fastApi
+Import auth_function from dependency
+Import HealthCheck from models
+
+# define api specification
+@api(“/health_check”, depends=[auth_function])
+def health_check_api():
+	return HealthCheck(200)
+
+
+health_check_lambda = (status_code): status_code == 200
+
